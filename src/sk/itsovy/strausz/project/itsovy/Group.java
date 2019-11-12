@@ -1,6 +1,9 @@
 package sk.itsovy.strausz.project.itsovy;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Random;
 
 public class Group {
 
@@ -28,8 +31,21 @@ public class Group {
 
     }
 
-    public String getStudent(String firstName, String lastName){
-       return null;
+    public String getStudent(String firstName, String lastName) {
+        if (size < 0) {
+            return null;
+        }
+        String fullName = null;
+        for (int i = 0; i < arr.length; i++) {
+            if (firstName.equals(arr[i].getFirstName()) && lastName.equals(arr[i].getLastName())) {
+                fullName = firstName + " " + lastName;
+
+
+            }
+
+
+        }
+        return fullName;
 
     }
 
@@ -69,5 +85,46 @@ public class Group {
         return capacity;
     }
 
+    public void  sort() {
+        int n= size;
+        if (size > 0) {
+
+            for (int i = 1; i < n-1; i++) {
+                for (int j = i + 1; j < size; j++) {
+                    if (arr[i].getLastName().compareToIgnoreCase(arr[j].getLastName()) > 0) {
+                        Student temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+
+                    }
+                    if (arr[i].getLastName().compareToIgnoreCase(arr[j].getLastName()) == 0) {
+                        if (arr[i].getFirstName().compareToIgnoreCase(arr[j].getFirstName()) > 0) {
+                            Student temp = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = temp;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    public Student randomStudent(){
+       int a=0;
+
+        if(size>0) {
+            Random rnd= new Random();
+
+                a= rnd.nextInt(size);
+
+       }
+       return arr[a];
+
+    }
+//    public String [] getStudents(int month){
+//
+//    }
 
 }
