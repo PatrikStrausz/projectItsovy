@@ -7,12 +7,17 @@ import java.util.Date;
 public class Student {
     private String firstName;
     private String lastName;
-    private Date birthDate;
+    private int day;
+    private int month;
+    private int year;
 
-    public Student(String firstName, String lastName, Date birthDate) {
+    public Student(String firstName, String lastName, int day ,int month, int year) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
+        this.day=day;
+        this.month=month;
+        this.year=year;
+
     }
 
     public String getFirstName() {
@@ -23,57 +28,57 @@ public class Student {
         return lastName;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public int getBirthDate() {
+        return 0;
     }
 
-    public String getFullName(){
-        return firstName + " " +lastName;
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 
-    public int getBirthDay(){
-       return 0;
+    public int getBirthDay() {
+        return day;
 
     }
-    public  int getBirthMonth(){
-        Calendar cal = Calendar.getInstance();
-        int month = cal.get(Calendar.MONTH);
+
+    public int getBirthMonth() {
+
         return month;
+
+// Calendar cal = Calendar.getInstance();
+//        int month = cal.get(Calendar.MONTH);
+//        return month;
     }
 
-    public int getBirthYear(){
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
+    public int getBirthYear() {
         return year;
+//
+//        Calendar cal = Calendar.getInstance();
+//        int year = cal.get(Calendar.YEAR);
+//        return year;
     }
 
-    public int getAge(){
-     return 0;
+    public int getAge() {
+//       int currentYear =  Calendar.getInstance().get(Calendar.YEAR);
+//        int year = currentYear - this.year;
+//
+//        int currentMonth=Calendar.getInstance().get(Calendar.MONTH)+1;
+//        int month= currentMonth - this.month;
+
+        return 1;
     }
 
 
+    public String toString() {
+        return getFullName() + " " + "\n"+ "Born: "+ day + "." + month + "." + year+ "\n";
 
-    public String toString(){
-        return getFullName();
     }
 
-//    public String getZodiacSign(){
-//      int day = 0;
-//        int month = 0;
-//
-//
-//        System.out.println("Enter day: ");
-//        day = scanner.nextInt();
-//
-//
-//        System.out.println("Enter month: ");
-//        month = scanner.nextInt();
-//
-//        if (day > 31 || day < 0) {
-//            System.out.println("Invalid Value ");
-//        }
-//        System.out.println(" ");
-//
+
+//    public String getZodiacSign() {
+
+//        int day = getBirthDay();
+//        int month = getBirthMonth();
 //
 //        switch (month) {
 //
@@ -81,11 +86,11 @@ public class Student {
 //                if (day >= 1 && day <= 20) {
 //
 //
-//                    System.out.println("Capricorn");
+//                    return "Capricorn";
 //                }
 //
 //                if (day >= 21 && day <= 31) {
-//                    System.out.println("Aquarius");
+//                    return "Aquarius";
 //                }
 //                break;
 //
@@ -94,11 +99,11 @@ public class Student {
 //                if (day >= 20 && day <= 28) {
 //
 //
-//                    System.out.println("Pisces");
+//                    return "Pisces";
 //                }
 //
 //                if (day <= 19 && day >= 1) {
-//                    System.out.println("Aguarius");
+//                    return "Aguarius";
 //                }
 //                break;
 //
@@ -107,10 +112,10 @@ public class Student {
 //                if (day >= 21 && day <= 31) {
 //
 //
-//                    System.out.println("Aries");
+//                    return "Aries";
 //                }
 //                if (day >= 1 && day <= 20)
-//                    System.out.println("Pisces");
+//                    return "Pisces";
 //                break;
 //
 //
@@ -118,10 +123,10 @@ public class Student {
 //                if (day >= 1 && day <= 20) {
 //
 //
-//                    System.out.println("Aries");
+//                    return "Aries";
 //                }
 //                if (day >= 21 && day <= 30) {
-//                    System.out.println("Taurus");
+//                    return "Taurus";
 //                }
 //                break;
 //
@@ -130,85 +135,85 @@ public class Student {
 //                if (day >= 1 && day <= 21) {
 //
 //
-//                    System.out.println("Taurus");
+//                    return "Taurus";
 //                }
 //                if (day >= 22 && day <= 31) {
 //
 //
-//                    System.out.println("Gemini");
+//                    return "Gemini";
 //                }
 //                break;
 //
 //
 //            case 6:
 //                if (day >= 1 && day <= 21) {
-//                    System.out.println("Gemini");
+//                    return "Gemini";
 //                }
 //                if (day >= 22 && day <= 30) {
-//                    System.out.println("Cancer");
+//                    return "Cancer";
 //                }
 //                break;
 //
 //
 //            case 7:
 //                if (day >= 1 && day <= 22) {
-//                    System.out.println("Cancer");
+//                    return "Cancer";
 //                }
 //                if (day >= 23 && day <= 31) {
-//                    System.out.println(" Leo");
+//                    return " Leo";
 //                }
 //                break;
 //
 //            case 8:
 //                if (day >= 1 && day <= 23) {
-//                    System.out.println("Leo");
+//                    return "Leo";
 //                }
 //                if (day >= 24 && day <= 31) {
-//                    System.out.println("Virgo");
+//                    return "Virgo";
 //                }
 //                break;
 //
 //            case 9:
 //                if (day >= 1 && day <= 23) {
-//                    System.out.println("Virgo");
+//                    return "Virgo";
 //                }
 //                if (day >= 24 && day <= 30) {
-//                    System.out.println("Libra");
+//                    return "Libra";
 //                }
 //                break;
 //
 //            case 10:
 //                if (day >= 1 && day <= 23) {
-//                    System.out.println("Libra");
+//                    return "Libra";
 //                }
 //                if (day >= 24 && day <= 31) {
-//                    System.out.println("Scorpio");
+//                    return "Scorpio";
 //                }
 //                break;
 //
 //            case 11:
 //                if (day >= 1 && day <= 22) {
-//                    System.out.println("Scorpio");
+//                    return "Scorpio";
 //                }
 //                if (day >= 23 && day <= 30) {
-//                    System.out.println("Sagittarius");
+//                    return "Sagittarius";
 //                }
 //                break;
 //
 //            case 12:
 //                if (day >= 1 && day <= 21) {
-//                    System.out.println("Sagittarius");
+//                    return "Sagittarius";
 //                }
 //                if (day >= 22 && day <= 31) {
-//                    System.out.println("Capricorn");
+//                    return "Capricorn";
 //                }
 //                break;
+//
 //            default:
-//                System.out.println("Invalid value");
+//
+//                return "Invalid value";
 //
 //        }
-//
-//
-//
-//    }
+//  }
+
 }

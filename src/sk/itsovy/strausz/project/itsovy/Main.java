@@ -1,25 +1,26 @@
 package sk.itsovy.strausz.project.itsovy;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Student Patrik = new Student("Patrik", "Strausz", new Date());
-        Student ka = new Student("Karin", "Had", new Date());
-        Student ka2 = new Student("Erik", "Pes", new Date());
-        Student a = new Student("Alica","Aalica", new Date());
+        Student patrik = new Student("Patrik", "Strausz", 17,1,2000   );
+        Student zuzana = new Student("Zuzana", "Had", 12,8,1996);
+        Student erik = new Student("Erik", "Pes",  5,6,1980);
+        Student alica = new Student("Alica","Usata", 18,12,1998);
         Group g1 = new Group("1N", 5);
-        g1.addStudent(Patrik);
-        g1.addStudent(ka);
-        g1.addStudent(ka2);
-        g1.addStudent(a);
-        g1.print();
+        g1.addStudent(patrik);
+        g1.addStudent(zuzana);
+        g1.addStudent(erik);
+        g1.addStudent(alica);
+
 
 
        g1.print();
-        System.out.println(g1.randomStudent());
+
 
 
 
