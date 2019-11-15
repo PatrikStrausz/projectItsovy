@@ -1,16 +1,18 @@
 package sk.itsovy.strausz.project.itsovy;
 
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 
-public class Group {
+public class Group  {
 
     private String name;
     private int capacity;
     private Student[] arr;
     private  int size;
+  private String [] subject;
 
 
     public Group(String name, int capacity) {
@@ -123,8 +125,41 @@ public class Group {
        return arr[a];
 
     }
-//    public String [] getStudents(int month){
-//
-//    }
 
+  public Student[] getStudents(int month){
+      if (size == 0 || month <= 0 || month >=13){
+          System.out.println("Wrong input");
+          System.exit(1);
+      }
+      int temp=0;
+      for (int i=0; i<size; i++){
+          if (month == arr[i].getBirthMonth()){
+              temp++;
+          }
+      }
+      Student[] students = new Student[temp];
+      temp=0;
+      for (int i=0; i<size; i++){
+          if (month == arr[i].getBirthMonth()){
+              students[temp]=arr[i];
+              temp++;
+          }
+      }
+      return students;
+  }
+
+
+//     public Student [] getStudentsBySubject(String [] subject){
+//       if(subject == null){
+//           return null;
+//       }
+//      int temp=0;
+//       for(int i=0;i<subject.length;i++){
+//       if(this.subject==subject) {
+//           temp= i;
+//        }
+//       }
+//
+//     }
 }
+

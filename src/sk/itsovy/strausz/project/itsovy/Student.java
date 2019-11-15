@@ -1,6 +1,8 @@
 package sk.itsovy.strausz.project.itsovy;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,6 +12,8 @@ public class Student {
     private int day;
     private int month;
     private int year;
+    private String [] subject;
+
 
     public Student(String firstName, String lastName, int day ,int month, int year) {
         this.firstName = firstName;
@@ -17,6 +21,7 @@ public class Student {
         this.day=day;
         this.month=month;
         this.year=year;
+
 
     }
 
@@ -36,41 +41,45 @@ public class Student {
         return firstName + " " + lastName;
     }
 
-    public int getBirthDay() {
+    public  int getBirthDay() {
         return day;
 
     }
 
-    public int getBirthMonth() {
+    public  int getBirthMonth() {
 
         return month;
 
-// Calendar cal = Calendar.getInstance();
-//        int month = cal.get(Calendar.MONTH);
-//        return month;
     }
 
-    public int getBirthYear() {
+    public   int getBirthYear() {
         return year;
-//
-//        Calendar cal = Calendar.getInstance();
-//        int year = cal.get(Calendar.YEAR);
-//        return year;
+
     }
 
-    public int getAge() {
-//       int currentYear =  Calendar.getInstance().get(Calendar.YEAR);
-//        int year = currentYear - this.year;
-//
-//        int currentMonth=Calendar.getInstance().get(Calendar.MONTH)+1;
-//        int month= currentMonth - this.month;
+    public static int getAge() {
 
         return 1;
     }
 
+    public void addSubject(String subject[] ) {
+
+        if (subject == null || subject == this.subject) {
+            System.out.println("Error");
+        }
+
+        String[] tempSubjects = new String[subject.length+1];
+        tempSubjects[subject.length] = subject [tempSubjects.length];
+        subject = tempSubjects;
+    }
+
+
+    public String[] getSubject() {
+        return subject;
+    }
 
     public String toString() {
-        return getFullName() + " " + "\n"+ "Born: "+ day + "." + month + "." + year+ "\n";
+        return getFullName() + " " + "\n"+ "Born: "+ day + "." + month + "." + year+ "\n" + "Subjects: " + Arrays.toString(getSubject());
 
     }
 

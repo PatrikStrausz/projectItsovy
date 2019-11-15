@@ -19,9 +19,11 @@ public class Main {
 
 
 
-       g1.print();
+//       g1.print();
 
-
+        System.out.println(patrik.toString());
+ patrik.addSubject(new String [] {"Math, "});
+        System.out.println(patrik.toString());
 
 
     }
