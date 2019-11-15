@@ -12,16 +12,18 @@ public class Student {
     private int day;
     private int month;
     private int year;
-    private String [] subject;
+    private String[] subjects;
+    private int countOfSubjects;
 
 
-    public Student(String firstName, String lastName, int day ,int month, int year) {
+    public Student(String firstName, String lastName, int day, int month, int year) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.day=day;
-        this.month=month;
-        this.year=year;
-
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.subjects = new String[10];
+        this.countOfSubjects = 0;
 
     }
 
@@ -41,20 +43,24 @@ public class Student {
         return firstName + " " + lastName;
     }
 
-    public  int getBirthDay() {
+    public int getBirthDay() {
         return day;
 
     }
 
-    public  int getBirthMonth() {
+    public int getBirthMonth() {
 
         return month;
 
     }
 
-    public   int getBirthYear() {
+    public int getBirthYear() {
         return year;
 
+    }
+
+    public String[] getSubject() {
+        return subjects;
     }
 
     public static int getAge() {
@@ -62,24 +68,39 @@ public class Student {
         return 1;
     }
 
-    public void addSubject(String subject[] ) {
+    public boolean addSubject(String subject) {
 
-        if (subject == null || subject == this.subject) {
-            System.out.println("Error");
+        if (subject == null || subject == "") {
+            return false;
         }
+        boolean find = false;
+        for (int i = 0; i < countOfSubjects; i++) {
+            if (subjects[i].compareToIgnoreCase(subject) == 0) {
+                find = true;
+                break;
+            }
+        }
+        if (find == false && countOfSubjects <10) {
+            subjects[countOfSubjects] = subject.toUpperCase();
+            countOfSubjects++;
+            return true;
+        } else
+            return false;
 
-        String[] tempSubjects = new String[subject.length+1];
-        tempSubjects[subject.length] = subject [tempSubjects.length];
-        subject = tempSubjects;
     }
 
-
-    public String[] getSubject() {
-        return subject;
+public void printSubject(){
+    System.out.println("Student " +firstName + " " + lastName + " attends: ");
+    for(int i=0;i<countOfSubjects; i++){
+        System.out.println(" - "+subjects[i]);
     }
+}
+
+
+
 
     public String toString() {
-        return getFullName() + " " + "\n"+ "Born: "+ day + "." + month + "." + year+ "\n" + "Subjects: " + Arrays.toString(getSubject());
+        return getFullName() + " " + "\n"+ "Born: "+ day + "." + month + "." + year;
 
     }
 

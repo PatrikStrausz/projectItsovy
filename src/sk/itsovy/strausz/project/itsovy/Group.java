@@ -149,16 +149,10 @@ public class Group  {
   }
 
 
-//     public Student [] getStudentsBySubject(String [] subject){
-//       if(subject == null){
-//           return null;
-//       }
-//      int temp=0;
-//       for(int i=0;i<subject.length;i++){
-//       if(this.subject==subject) {
-//           temp= i;
+//     public boolean getStudentsBySubject(String subject){
+//    if(subject==null || size==0){
+//            return false;
 //        }
-//       }
 //
 //     }
 }

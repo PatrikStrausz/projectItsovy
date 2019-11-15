@@ -21,10 +21,10 @@ public class Main {
 
 //       g1.print();
 
-        System.out.println(patrik.toString());
- patrik.addSubject(new String [] {"Math, "});
-        System.out.println(patrik.toString());
-
-
+          patrik.addSubject("MAT");
+        patrik.addSubject("ANJ");
+        patrik.addSubject("MAT");
+        patrik.addSubject("BIO");
+        patrik.printSubject();
     }
 }
